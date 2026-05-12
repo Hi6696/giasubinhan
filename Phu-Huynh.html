@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:linear-gradient(to bottom,#f4f6ff,#ffffff);
+background: url("logo1.png") center/cover no-repeat fixed;
+  position: relative;
+}
+body::before{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+
+  background:rgba(255,255,255,0.75); /* chỉnh độ mờ */
+  z-index:-1;
+}
+
+.card, .container{
+  animation:fadeUp 0.8s ease;
+}
+
+/* NAVBAR */
+.navbar{
+  width:100%;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+  box-shadow:0 4px 20px rgba(0,0,0,0.08);
+  padding:22px 30px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+    backdrop-filter: blur(6px);
+  background: rgba(255,255,255,0.85);
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:56px;
+  font-weight:700;
+  color:#1e3a8a;
+}
+
+.logo img{
+  height:90px;
+  width:90px;
+  border-radius:10px;
+}
+
+.menu a{
+  text-decoration:none;
+  margin-left:18px;
+  font-size: 20px;
+  color:#333;
+  font-weight:500;
+  position:relative;
+}
+
+.menu a:hover{
+  color:#2563eb;
+}
+
+.menu a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0;
+  height:2px;
+  background:#2563eb;
+  transition:0.3s;
+}
+
+.menu a:hover::after{
+  width:100%;
+}
+/* HEADER */
+/* HEADER */
+.header{
+  position:relative;
+  height:500px;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+}
+
+/* ẢNH NỀN */
+.slides{
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  z-index:1;
+}
+
+.slides img{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  animation:slide 15s infinite;
+}
+
+/* HIỆU ỨNG TỐI */
+.overlay{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.45);
+  z-index:2;
+}
+
+/* NỘI DUNG */
+.header{
+  position:relative;
+  height:520px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+}
+
+.header-content{
+  z-index:3;
+  max: width 1900px;;
+  padding:30px;
+  background:rgba(223, 225, 212, 0.45);
+  border-radius:20px;
+  animation:fadeUp 1s ease;
+}
+
+.header-content h1{
+  font-size:35px;
+  margin-bottom:15px;
+}
+
+.header-content p{
+  font-size:24px;
+  line-height:2.0;
+}
+
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* ANIMATION */
+.slides img:nth-child(1){
+  animation-delay:0s;
+}
+
+.slides img:nth-child(2){
+  animation-delay:5s;
+}
+
+.slides img:nth-child(3){
+  animation-delay:10s;
+}
+
+@keyframes slide{
+  0%{
+    opacity:0;
+    transform:scale(1);
+  }
+
+  10%{
+    opacity:1;
+  }
+
+  30%{
+    opacity:1;
+    transform:scale(1.1);
+  }
+
+  40%{
+    opacity:0;
+  }
+
+  100%{
+    opacity:0;
+  }
+}
+
+.header h1{
+  font-size:42px;
+}
+
+.header p{
+  margin-top:15px;
+  font-size:18px;
+}
+
+/* BENEFITS */
+.benefits{
+  max-width:1100px;
+  margin:50px auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  padding:0 20px;
+}
+
+.card{
+  background:white;
+  padding:50px 30px;
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  font-size: 20px;
+  text-align:center;
+  transition:0.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:5px;
+  background:#2563eb;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.12);
+}
+
+.card h3{
+    font-size: 30px;
+  color:#1e3a8a;
+}   
+/* FORM */
+.container{
+  max-width:800px;
+  margin:40px auto;
+  font-size: 28px;
+  background:white;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.12);
+}
+
+.container h2{
+  text-align:center;
+  margin-bottom:25px;
+  color:#1e3a8a;
+}
+
+input,textarea{
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  border-radius:10px;
+  border:1px solid #ddd;
+  transition:0.2s;
+}
+
+input:focus,textarea:focus{
+  border-color:#2563eb;
+  box-shadow:0 0 8px rgba(37,99,235,0.2);
+}
+
+button{
+  width:100%;
+  padding:15px;
+  background:#2563eb;
+  color:white;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#1e40af;
+}
+
+/* STATUS */
+.loading,
+.success{
+  display:none;
+  text-align:center;
+  margin-top:15px;
+}
+
+.loading{
+  color:#2563eb;
+}
+
+.success{
+  color:green;
+}
+
+/* FOOTER */
+.footer{
+  background:#111827;
+  color:white;
+  text-align:center;
+  padding:25px;
+  margin-top:60px;
+}
+
+.footer p{
+  opacity:0.8;
+  font-size:14px;
+}
+.wrapper{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 20px;
+}
+.benefits{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:25px;
+}
+/* MOBILE */
+@media(max-width:768px){
+
+  .navbar{
+    padding:15px 20px;
+  }
+
+  .menu{
+    display:none;
+  }
+
+  .header h1{
+    font-size:32px;
+  }
+
+}
+@media(max-width:768px){
+  .benefits{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo"><img src="logo1.png">Gia Sư Bình An</div>
+
+  <div class="menu">
+    <a href="index.html">Trang chủ</a>
+    <a href="index.html#services">Khóa học</a>
+    <a href="index.html#register">Đăng ký</a>
+    <a href="index.html#footer">Liên hệ</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+  <!-- NỘI DUNG -->
+  <div class="header-content">
+    <h1>📚 GIỚI THIỆU :</h1>
+    <p>
+Trung tâm Gia sư Bình An là đơn vị chuyên cung cấp dịch vụ gia sư, được xây dựng với mục tiêu đồng hành cùng học sinh trên hành trình nâng cao kiến thức và phát triển toàn diện. Chúng tôi hoạt động với định hướng lấy chất lượng giảng dạy làm nền tảng, sự tiến bộ của học sinh làm thước đo hiệu quả.
+
+Trung tâm quy tụ đội ngũ gia sư là những sinh viên từ các trường đại học uy tín, cùng đội ngũ giáo viên có chuyên môn vững vàng và nhiều kinh nghiệm giảng dạy. Tất cả gia sư đều được tuyển chọn kỹ lưỡng, đảm bảo về năng lực, đạo đức nghề nghiệp và tinh thần trách nhiệm cao.
+
+Gia sư Bình An triển khai mô hình dạy kèm 1-1 hoặc theo nhóm nhỏ, giúp cá nhân hóa phương pháp học tập phù hợp với từng học sinh. Nhờ đó, học viên được củng cố kiến thức nền tảng, cải thiện kết quả học tập và phát triển tư duy một cách bền vững.
+
+Với phương châm hoạt động “Uy tín – Chất lượng – Hiệu quả”, chúng tôi cam kết mang đến môi trường học tập nghiêm túc, tận tâm và đồng hành lâu dài cùng phụ huynh trong việc nâng cao thành tích học tập của học sinh.</p>
+  </div>
+</div>
+<!-- BENEFITS -->
+ <div class="warpper">
+<div class="benefits">
+
+  <div class="card">
+    <h3>🎓 Gia sư giỏi - uy tín.</h3>
+    <h3>Kinh nghiệm - Chất lượng.</h3>
+    <p>Trung tâm luôn lựa chọn kỹ lưỡng những gia sư là sinh viên năng động, nhiệt huyết, là những sinh viên ưu tú, xuất sắc tại các trường Cao Đẳng, Đại Học tại TPHCM.</p>
+  </div>
+
+  <div class="card">
+    <h3>📚 Dạy 1-1.</h3>
+    <h3>Theo sát từng học sinh</h3> 
+    <p> 95% học sinh tiến bộ trong thời gian theo học tại trung tâm.</p>
+  </div>
+
+  <div class="card">
+    <h3>💰 Tối ưu chi phí.</h3>
+    <h3>Hỗ trợ mỗi ngày </h3> 
+    <p>Gia sư của chúng tôi sẽ dạy thử 1-3 buổi để học sinh và phụ huynh đánh giá trình độ và phong cách giảng dạy.Điều này giúp đảm bảo sự phù hợp và hiệu quả trong quá trình học.
+  </div></p>
+  </div>
+</div>
+</div>
+<!-- FORM -->
+<div class="container"id="register">
+
+  <h2>ĐĂNG KÝ ỨNG TUYỂN</h2>
+
+  <form id="form">
+
+    <input id="name" placeholder="Họ tên" required>
+
+    <input id="phone" placeholder="Số điện thoại" required>
+
+   <input id="subject" placeholder="Môn dạy" list="subject-list" required>
+<datalist id="subject-list">
+  <option value="Toán">
+  <option value="Văn">
+  <option value="Anh">
+  <option value="Lý">
+  <option value="Hóa">
+  <option value="Sinh">
+  <option value="Khoa học tự nhiên">
+  <option value="Tiếng Việt">
+</datalist>
+
+<input id="class" placeholder="Lớp dạy" list="class-list" required>
+<datalist id="class-list">
+  <option value="Lớp 1">
+  <option value="Lớp 2">
+  <option value="Lớp 3">
+  <option value="Lớp 4">
+  <option value="Lớp 5">
+  <option value="Lớp 6">
+  <option value="Lớp 7">
+  <option value="Lớp 8">
+  <option value="Lớp 9">
+</datalist>
+    <input id="expertise" placeholder="Chuyên môn">
+    <input id="area" placeholder="Khu vực">
+    <textarea id="note" placeholder="Ghi chú"></textarea>
+
+    <button type="submit">GỬI ĐĂNG KÝ</button>
+
+    <div class="loading" id="loading">
+      ⏳ Đang gửi dữ liệu...
+    </div>
+
+    <div class="success" id="success">
+      ✔ Đăng ký thành công!
+    </div>
+
+  </form>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>© 2026 Gia Sư Bình An. All Rights Reserved.</p>
+</div>
+
+<script>
+
+document.getElementById("form").addEventListener("submit", function(e){
+
+  e.preventDefault();
+
+  document.getElementById("loading").style.display="block";
+  document.getElementById("success").style.display="none";
+
+  const data = new URLSearchParams();
+
+  data.append("name", document.getElementById("name").value);
+  data.append("phone", document.getElementById("phone").value);
+  data.append("subject", document.getElementById("subject").value);
+  data.append("class", document.getElementById("class").value);
+  data.append("expertise", document.getElementById("expertise").value);
+    data.append("area", document.getElementById("area").value);
+  data.append("note", document.getElementById("note").value);
+
+  fetch("https://script.google.com/macros/s/AKfycbxVnGWD9Hha38yPLm-iJXS6FtgYCUaZ68kn58azt4v3dckxmsQswY_4lmucVLkjmoQF/exec",{
+    method:"POST",
+    body:data
+  })
+
+  .then(res=>res.text())
+
+  .then(res=>{
+
+    document.getElementById("loading").style.display="none";
+
+    document.getElementById("success").style.display="block";
+
+    document.getElementById("form").reset();
+
+  })
+
+  .catch(err=>{
+
+    document.getElementById("loading").style.display="none";
+
+    alert("Có lỗi xảy ra!");
+
+  });
+
+});
+
+</script>
+
+</body>
+</html>

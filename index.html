@@ -41,6 +41,65 @@
   color: rgb(7, 7, 7);
   overflow: hidden; /* đảm bảo ảnh không tràn ra ngoài */
 }
+.dropdown{
+  position: relative;
+  display: inline-block;
+}
+
+/* menu ẩn ban đầu */
+.dropdown-content{
+  position: absolute;
+  top: 45px;
+  left: 0;
+
+  min-width: 240px;
+  background: white;
+  border-radius: 14px;
+
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+
+  opacity: 0;
+  transform: translateY(10px);
+  visibility: hidden;
+
+  transition: 0.25s ease;
+
+  z-index: 999;
+}
+
+/* item */
+.dropdown-content a{
+  display: block;
+  padding: 14px 18px;
+  text-decoration: none;
+  color: #374151;
+  transition: 0.2s;
+}
+
+.dropdown-content a:hover{
+  background: #f3f4f6;
+  padding-left: 22px;
+  color: #4f46e5;
+}
+
+/* 👇 CHỈ CẦN RÊ CHUỘT LÀ HIỆN */
+.dropdown:hover .dropdown-content{
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+.arrow{
+  font-size: 10px;
+  margin-left: 6px;
+  transition: 0.3s;
+   transform: rotate(180deg);
+}
+
+/* khi mở menu thì xoay mũi tên */
+.dropdown.active .arrow,
+.dropdown:hover .arrow{
+  transform: rotate(180deg);
+}
 /*khu vực chuyển ảnh động trang chính */
 @keyframes slideBg {
   0% {
@@ -547,9 +606,44 @@ function toggleMenu() {
 <div class="menu-toggle" onclick="toggleMenu()">☰</div>
   <nav id="menu">
     <a href="#home">Trang chủ</a>
-    <a href="#services">Khóa học</a>
-    <a href="#recruit">Tuyển dụng</a>
-    <a href="#register">Đăng ký</a>
+      <div class="dropdown">
+  <a href="javascript:void(0)" class="dropdown-btn">
+    Khóa học <span class="arrow">▼</span>
+  </a>
+  <div class="dropdown-content">
+    <a href="#register">TIỂU HỌC</a>
+    <a href="tuyen-dung.html">
+      THCS</a>
+      <a href="tuyen-dung.html">
+      BÁO BÀI</a>
+      <a href="tuyen-dung.html">
+      STEAM</a>
+  </div>
+</div>
+
+   <div class="dropdown">
+  <a href="javascript:void(0)" class="dropdown-btn">
+    Dành Cho Phụ Huynh <span class="arrow">▼</span>
+  </a>
+  <div class="dropdown-content">
+    <a href="Phu-huynh.html">Giới Thiệu</a>
+    <a href="Phu-Huynh.html#register">
+      Liên Hệ Tìm Gia Sư
+    </a>
+  </div>
+</div>
+
+ <div class="dropdown">
+  <a href="javascript:void(0)" class="dropdown-btn">
+    Dành Cho Gia Sư <span class="arrow">▼</span>
+  </a>
+  <div class="dropdown-content">
+    <a href="tuyen-dung.html">Đăng ký làm gia sư</a>
+    <a href="tuyen-dung.html">
+      Nội Quy Nhận Lớp
+    </a>
+  </div>
+</div>
     <a href="#footer">Liên hệ</a> 
   </nav>
 </header>
